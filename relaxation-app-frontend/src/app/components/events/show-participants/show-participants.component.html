@@ -1,0 +1,11 @@
+<section fxLayoutAlign="center center" fxLayout="column" fxLayoutGap="10px">
+    <div>
+        <h1>Participants for: {{ clickedEvent.name }}</h1>
+    </div>
+    <p *ngIf="participantsCount === 0">No participants for this event</p>
+    <mat-list>
+        <mat-list-item *ngFor="let participant of participants">
+            <span>{{ participant.forename }} {{ participant.surname }}</span>
+        </mat-list-item>
+    </mat-list>
+</section>

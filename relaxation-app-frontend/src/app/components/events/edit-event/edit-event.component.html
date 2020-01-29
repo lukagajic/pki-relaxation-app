@@ -1,0 +1,148 @@
+<h1 mat-dialog-title>Edit an event: {{ currentEvent.name }}</h1>
+<section>
+    <div>
+      <mat-horizontal-stepper [linear]="isLinear" #stepper>
+        <mat-step [stepControl]="eventNameFG">
+          <form [formGroup]="eventNameFG">
+            <!-- <ng-template matStepLabel>Enter an event name</ng-template> -->
+            <mat-form-field hintLabel="Enter minimum 6 characters">
+              <input type="text" matInput placeholder="Event name" formControlName="eventName" required>
+            </mat-form-field>
+            <div>
+              <button mat-button matStepperNext>Next</button>
+            </div>
+          </form>
+        </mat-step>
+  
+        <!-- Form Group za Description -->
+        <mat-step [stepControl]="eventDescriptionFG">
+          <form [formGroup]="eventDescriptionFG">
+            <!-- <ng-template matStepLabel>Enter short description</ng-template> -->
+            <mat-form-field hintLabel="Enter minimum 12 characters">
+              <input matInput placeholder="Description" formControlName="eventDescription" required>
+            </mat-form-field>
+            <div>
+              <button mat-button matStepperPrevious>Previous</button>
+              <button mat-button matStepperNext>Next</button>
+            </div>
+          </form>
+        </mat-step>
+  
+        <!-- Form Group za Category -->
+        <mat-step [stepControl]="eventCategoryFG">
+          <form [formGroup]="eventCategoryFG">
+            <!-- <ng-template matStepLabel>Choose event category</ng-template> -->
+            <mat-form-field>
+              <mat-select matInput placeholder="Category" formControlName="eventCategory">
+                <mat-option value="sports">Sports</mat-option>
+                <mat-option value="movies">Movies</mat-option>
+                <mat-option value="music">Music</mat-option>
+                <mat-option value="fun">Fun</mat-option>
+                <mat-option value="theatre">Theatre</mat-option>
+              </mat-select>
+            </mat-form-field>
+            <div>
+              <button mat-button matStepperPrevious>Previous</button>
+              <button mat-button matStepperNext>Next</button>
+            </div>
+          </form>
+        </mat-step>
+  
+        <!-- Form Group za City -->
+        <mat-step [stepControl]="eventCityFG">
+          <form [formGroup]="eventCityFG">
+            <!-- <ng-template matStepLabel>Choose event city</ng-template> -->
+            <mat-form-field>
+              <mat-select matInput placeholder="Location" formControlName="eventCity">
+                <mat-option value="Beograd">Beograd</mat-option>
+                <mat-option value="Novi Sad">Novi Sad</mat-option>
+                <mat-option value="Nis">Niš</mat-option>
+                <mat-option value="Subotica">Subotica</mat-option>
+              </mat-select>
+            </mat-form-field>
+            <div>
+              <button mat-button matStepperPrevious>Previous</button>
+              <button mat-button matStepperNext>Next</button>
+            </div>
+          </form>
+        </mat-step>
+  
+        <!-- Form Group za Address -->
+        <mat-step [stepControl]="eventAddressFG">
+          <form [formGroup]="eventAddressFG">
+            <!-- <ng-template matStepLabel>Enter address</ng-template> -->
+            <mat-form-field hintLabel="Enter minimum 5 characters">
+              <input matInput placeholder="Address" formControlName="eventAddress" required>
+            </mat-form-field>
+            <div>
+              <button mat-button matStepperPrevious>Previous</button>
+              <button mat-button matStepperNext>Next</button>
+            </div>
+          </form>
+        </mat-step>
+  
+        <!-- Form Group za starts at i ends at -->
+        <mat-step [stepControl]="eventDateFG">
+          <form [formGroup]="eventDateFG">
+            <!-- <ng-template matStepLabel>Enter start and end date</ng-template> -->
+            <mat-form-field>
+              <input formControlName="eventStartsAt" matInput [matDatepicker]="startsAtDatePicker" placeholder="Choose a start date">
+              <mat-datepicker-toggle matSuffix [for]="startsAtDatePicker"></mat-datepicker-toggle>
+              <mat-datepicker #startsAtDatePicker></mat-datepicker>
+            </mat-form-field>
+            <mat-form-field>
+              <input  formControlName="eventEndsAt" matInput [matDatepicker]="endsAtDatePicker" placeholder="Choose an end date">
+              <mat-datepicker-toggle matSuffix [for]="endsAtDatePicker"></mat-datepicker-toggle>
+              <mat-datepicker #endsAtDatePicker></mat-datepicker>
+            </mat-form-field>
+            <div>
+              <button mat-button matStepperPrevious>Previous</button>
+              <button mat-button matStepperNext>Next</button>
+            </div>
+          </form>
+        </mat-step>
+  
+        <!-- Form Group za expected attendance -->
+        <mat-step [stepControl]="eventExpectedAttendanceFG">
+          <form [formGroup]="eventExpectedAttendanceFG">
+            <!-- <ng-template matStepLabel>Enter expected attendance count</ng-template> -->
+            <mat-form-field hintLabel="Only positive numbers are accepted">
+              <input matInput placeholder="Expected attendance" formControlName="eventExpectedAttendance" required>
+            </mat-form-field>
+            <div>
+              <button mat-button matStepperPrevious>Previous</button>
+              <button mat-button matStepperNext>Next</button>
+            </div>
+          </form>
+        </mat-step>
+
+        <mat-step [stepControl]="eventStatusFG">
+          <form [formGroup]="eventStatusFG">
+            <!-- <ng-template matStepLabel>Choose event status</ng-template> -->
+            <mat-form-field>
+              <mat-select matInput placeholder="Status" formControlName="eventStatus">
+                <mat-option value="Cancelled">Cancelled</mat-option>
+                <mat-option value="Regular">Regular</mat-option>
+              </mat-select>
+            </mat-form-field>
+            <div>
+              <button mat-button matStepperPrevious>Previous</button>
+              <button mat-button matStepperNext>Next</button>
+            </div>
+          </form>
+        </mat-step>
+  
+        <mat-step>
+          <ng-template matStepLabel>Done</ng-template>
+          You are now done. You can submit the form
+          <div>
+            <button mat-button matStepperPrevious>Previous</button>
+            <button mat-button (click)="stepper.reset()">Reset</button>
+          </div>
+          <div>
+            <button (click)="updateEvent()" mat-raised-button color="primary">Edit an event</button>
+          </div>
+        </mat-step>
+      </mat-horizontal-stepper>
+    </div>
+  </section>

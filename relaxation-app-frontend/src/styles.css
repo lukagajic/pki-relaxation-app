@@ -1,0 +1,16 @@
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+html, body {
+    font-family: Roboto;
+    height: 100%;
+}
+
+.color-red {
+    background-color: rgb(252, 3, 40);
+    color: rgb(255, 255, 255);
+}

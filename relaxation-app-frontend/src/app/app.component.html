@@ -1,0 +1,57 @@
+<mat-sidenav-container>
+    <mat-sidenav #sidenav opened="false">
+        <mat-nav-list>        
+            <a *ngIf="!userService.isUserAuthenticated()" (click)="sidenav.close()" mat-list-item routerLink="/login">
+                <mat-icon>label_important</mat-icon>
+                &nbsp;Login
+            </a>
+            <a *ngIf="!userService.isUserAuthenticated()" (click)="sidenav.close()" mat-list-item routerLink="/register">
+                <mat-icon>add_circle_outline</mat-icon>
+                &nbsp;Register
+            </a>
+            <a *ngIf="userService.isUserAuthenticated()" (click)="sidenav.close()" mat-list-item routerLink="/events">
+                <mat-icon>event</mat-icon>
+                &nbsp;Events
+            </a>
+            <a *ngIf="userService.isUserAuthenticated()" (click)="sidenav.close()" mat-list-item routerLink="/dashboard">
+                <mat-icon>dashboard</mat-icon>
+                &nbsp;Dashboard
+            </a>
+            <a *ngIf="userService.isUserAuthenticated()" (click)="sidenav.close()" mat-list-item routerLink="/profile">
+                <mat-icon>face</mat-icon>
+                &nbsp;Profile
+            </a>
+            <a *ngIf="userService.isUserAuthenticated()" (click)="onLogout()" mat-list-item>
+                <mat-icon>
+                    cancel_presentation
+                </mat-icon>
+                &nbsp;Logout
+            </a>
+        </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <mat-toolbar color="primary">
+            <div fxHide.gt-xs>
+                <button id="sidenav-btn" (click)="sidenav.toggle()">
+                    <mat-icon>menu</mat-icon>
+                </button>
+            </div>
+            <div id="logo-area">
+                <img src="../assets/images/logo.png" alt="logo" />
+            </div>
+            <div fxFlex fxLayoutAlign="end" fxLayoutGap="10px" fxHide.xs>
+                <!-- <a href="#">Hello {{ this.user.forename }}</a> -->
+                <a *ngIf="!userService.isUserAuthenticated()" routerLink="/login">Login</a>
+                <a *ngIf="!userService.isUserAuthenticated()" routerLink="/register">Register</a>
+                <a *ngIf="userService.isUserAuthenticated()" routerLink="/events">Events</a>
+                <a *ngIf="userService.isUserAuthenticated()" routerLink="/dashboard">Dashboard</a>
+                <a *ngIf="userService.isUserAuthenticated()" routerLink="/profile">Profile</a>
+                <a *ngIf="userService.isUserAuthenticated()" mat-raised-button color="warn" (click)="onLogout()">
+                    <mat-icon>cancel_presentation</mat-icon>
+                    &nbsp;Logout
+                </a>
+            </div>
+        </mat-toolbar>        
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>

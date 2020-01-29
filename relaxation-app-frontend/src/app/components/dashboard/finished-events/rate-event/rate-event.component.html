@@ -1,0 +1,10 @@
+<section fxLayout="column">
+    <div>
+        <h1>Rate event: {{ clickedEvent.name }}</h1>
+    </div>
+    <div>
+        <mat-slider [(ngModel)]="sliderValue" #slider min="1" max="5" step="1"></mat-slider>
+        <p>Current value: <strong>{{ slider.value }}</strong></p>
+        <button (click)="rateEvent()" mat-raised-button color="primary">Rate event</button>
+    </div>
+</section>

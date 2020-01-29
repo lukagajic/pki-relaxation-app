@@ -1,0 +1,44 @@
+<div fxLayoutAlign="center center" fxLayout="column" fxLayoutGap="10px">
+    <div>
+        <h1>Profile info</h1>
+    </div>
+    <div fxFlex fxLayoutGap="10px" fxLayoutAlign="flex-end">
+        <button (click)="onEditProfileClick()" mat-raised-button color="accent">
+            <mat-icon>edit</mat-icon>&nbsp;
+            Edit profile
+        </button>
+    </div>
+    <mat-card fxLayout="column" fxLayoutAlign="center center"  fxLayoutGap="15px">
+        <mat-card-header>
+            <mat-icon>face</mat-icon>&nbsp;
+            <span>{{ currentUser.forename }} {{ currentUser.surname }}</span>
+        </mat-card-header>
+        
+        <mat-card-header>
+            <mat-icon>email</mat-icon>&nbsp;
+            <span>{{ currentUser.email }}</span>
+        </mat-card-header>
+
+        <mat-card-header>
+            <mat-icon>apartment</mat-icon>&nbsp;
+            <span>{{ currentUser.city }}</span>
+        </mat-card-header>
+
+        <mat-card-header>
+            <mat-icon>near_me</mat-icon>&nbsp;
+            <span>{{ currentUser.address }}</span>
+        </mat-card-header>
+
+        <mat-card-header>
+            <mat-icon>calendar_today</mat-icon>&nbsp;
+            <span>{{ currentUser.bornAt | date }}</span>
+        </mat-card-header>
+
+        <mat-card-header>
+            <mat-icon>insert_emoticon</mat-icon>&nbsp;
+            <span *ngFor="let interest of currentUser.interests">
+                {{ interest | titlecase }}&nbsp;
+            </span>
+        </mat-card-header>
+    </mat-card>
+</div>

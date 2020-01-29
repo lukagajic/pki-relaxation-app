@@ -1,0 +1,33 @@
+a {
+    color: #ffffff;
+    text-decoration: none;
+    cursor: pointer;
+}
+a:hover, a:active {
+    color: #f2f2f2;
+}
+mat-sidenav-container, mat-sidenav-content, mat-sidenav {
+    height: 100%;
+}
+mat-sidenav {
+    width: 350px;
+    background-color: rgba(255, 255, 255, 0.8);
+}
+#sidenav-btn {
+    color: white;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    margin: 5px;
+}
+
+#logo {
+    color: white;
+    font-size: 25px;
+}
+#logo-area img {
+    width: 280px;
+    margin-top: 10px;
+}

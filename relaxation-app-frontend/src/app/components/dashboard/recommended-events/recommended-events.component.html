@@ -1,0 +1,26 @@
+<section fxLayout="column" fxLayoutGap="15px" fxLayoutAlign="center center">
+    <mat-card *ngFor="let recommendedEvent of recommendedEvents">
+        <mat-card-header>
+            <h1>{{ recommendedEvent.name }}</h1>
+        </mat-card-header>
+        <mat-divider></mat-divider>
+        <mat-card-content>
+            <mat-list>
+                <mat-list-item>
+                    <mat-icon>edit</mat-icon>&nbsp;
+                    {{ recommendedEvent.description }}
+                </mat-list-item>
+                <mat-list-item>
+                    <mat-icon>apartment</mat-icon>&nbsp;
+                    {{ recommendedEvent.city }}
+                </mat-list-item>
+                <mat-list-item>
+                    <mat-icon>web</mat-icon>&nbsp;
+                    {{  recommendedEvent.category | titlecase }}
+                </mat-list-item>
+               </mat-list>
+        </mat-card-content>
+        
+    </mat-card>    
+</section>
+

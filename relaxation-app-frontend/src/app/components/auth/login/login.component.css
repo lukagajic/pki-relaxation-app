@@ -1,0 +1,15 @@
+mat-form-field {
+    min-width: 400px;
+}
+div {
+    margin-top: 20px;
+}
+
+#btn-submit {
+    font-size: 17px !important;
+    padding: 7px 25px !important;
+    color: white;
+}
+mat-card {
+    padding: 25px;
+}

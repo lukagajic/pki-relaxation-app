@@ -1,0 +1,63 @@
+<section mat-dialog-content fxLayoutAlign="center center" fxLayout="column">
+            <form fxLayout="column" #f="ngForm" (ngSubmit)="updateProfile()">
+                <mat-form-field>
+                    <mat-label>Enter your forename</mat-label>
+                    <input [(ngModel)]="currentUser.forename" required type="text" #forenameInput="ngModel" ngModel name="forename" matInput placeholder="Forename">
+                    <mat-error *ngIf="forenameInput?.hasError('required')">Field shouldn' t be empty</mat-error>
+                </mat-form-field>
+        
+                <mat-form-field>
+                    <mat-label>Enter your surname</mat-label>
+                    <input [(ngModel)]="currentUser.surname" required type="text" #surnameInput="ngModel" ngModel name="surname" matInput placeholder="Surname">
+                    <mat-error *ngIf="surnameInput?.hasError('required')">Field shouldn' t be empty</mat-error>
+                </mat-form-field>
+        
+                <mat-form-field>
+                    <mat-label>Enter your email</mat-label>
+                    <input [(ngModel)]="currentUser.email" required type="email" ngModel name="email" matInput placeholder="Email">
+                    <mat-error *ngIf="emailInput?.hasError('required')">Field shouldn' t be empty</mat-error>
+                </mat-form-field>
+        
+                <!-- <mat-form-field>
+                    <mat-label>Enter your password</mat-label>
+                    <input type="password" ngModel name="password" matInput placeholder="Password" [disabled]="isPasswordFieldDisabled">
+                    <mat-error *ngIf="emailInput?.hasError('required')">Field shouldn' t be empty</mat-error>
+                    
+                </mat-form-field>
+                <button mat-raised-button color="accent" (click)="isPasswordFieldDisabled = false">Change password</button> -->
+        
+                <mat-form-field>
+                    <mat-label>Choose your city</mat-label>
+                    <mat-select [(ngModel)]="currentUser.city" ngModel name="city" matInput placeholder="City">
+                        <mat-option value="Beograd">Beograd</mat-option>
+                        <mat-option value="Novi Sad">Novi Sad</mat-option>
+                        <mat-option value="Nis">Niš</mat-option>
+                        <mat-option value="Subotica">Subotica</mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="emailInput?.hasError('required')">Field shouldn' t be empty</mat-error>
+                </mat-form-field>        
+        
+                
+                <mat-form-field>
+                    <mat-label>Enter your address</mat-label>
+                    <input [(ngModel)]="currentUser.address" type="text" ngModel name="address" matInput placeholder="Address">
+                    <mat-error *ngIf="emailInput?.hasError('required')">Field shouldn' t be empty</mat-error>
+                </mat-form-field>
+        
+                <mat-form-field>
+                    <mat-label>Enter your date of bith</mat-label>
+                    <input [(ngModel)]="currentUser.bornAt" ngModel name="bornAt" matInput [matDatepicker]="bornAtDatePicker" placeholder="Date of birth">
+                    <mat-datepicker-toggle matSuffix [for]="bornAtDatePicker"></mat-datepicker-toggle>
+                    <mat-datepicker #bornAtDatePicker></mat-datepicker>
+                    <mat-error *ngIf="emailInput?.hasError('required')">Field shouldn' t be empty</mat-error>
+                </mat-form-field>
+                
+                <mat-form-field>
+                    <mat-label>Enter your interests</mat-label>
+                    <input [(ngModel)]="userInterests" type="text" ngModel name="interests" matInput placeholder="Interests">
+                    <mat-error *ngIf="emailInput?.hasError('required')">Field shouldn' t be empty</mat-error>
+                </mat-form-field>
+                
+                <button id="btn-submit" type="submit" mat-raised-button color="primary">Update profile</button>
+            </form>    
+</section>

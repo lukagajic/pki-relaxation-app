@@ -1,0 +1,7 @@
+mat-card {
+    width: 40%;
+}
+
+mat-card mat-icon {
+    color:#4c911f;
+}
